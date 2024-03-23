@@ -1,0 +1,73 @@
+body {
+ background-color: #d0f0e0; /* Lighter sea green */
+ font-family: Arial, sans-serif;
+}
+.container {
+ max-width: 600px;
+ margin: 0 auto;
+ padding: 20px;
+ background-color: #f0fff0; /* Lighter sea green */
+}
+.contact-heading {
+ font-size: 14px;
+ font-weight: bold;
+ text-transform: uppercase;
+ color: #00bfff; /* Radium blue */
+ text-align: center;
+}
+.let-connect {
+ font-size: 18px;
+ font-weight: bold;
+ color: #000080; /* Dark navy blue */
+ text-align: center;
+ margin-top: 20px;
+}
+.sub-heading {
+ font-size: 14px;
+ color: #000080; /* Dark navy blue */
+ text-align: center;
+ margin-bottom: 20px;
+}
+.form-row {
+ display: flex;
+ gap: 10px;
+}
+.form-col {
+ flex: 1;
+}
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+ border: none;
+ border-bottom: 1px solid #000;
+ background-color: transparent;
+ padding: 5px;
+ width: 100%;
+}
+select {
+ -webkit-appearance: none;
+ -moz-appearance: none;
+ appearance: none;
+ background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0
+24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path
+d="M0 0h24v24H0z" fill="none"/></svg>');
+ background-repeat: no-repeat;
+ background-position: right center;
+ background-size: 20px;
+}
+.required {
+ color: red;
+}
+.submit-btn {
+ text-align: center;
+ margin-top: 20px;
+}
+button[type="submit"] {
+ background-color: #00bfff; /* Radium blue */
+ color: #fff;
+ border: none;
+ padding: 10px 20px;
+ font-size: 16px;
+ cursor: pointer;
+}
