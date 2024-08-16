@@ -1,77 +1,204 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
- <title>Contact Form</title>
- <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #a8dbcf; /* Darker outer background color */
+            color: black;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background-color: #d7f0e8; /* Lighter background for form container */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for container */
+            text-align: center; /* Center text in container */
+        }
+        h2 {
+            color: darkblue;
+            text-align: center;
+            font-size: 32px; /* Big font for "LET'S CONNECT" */
+            text-transform: uppercase; /* Capital letters */
+            margin-bottom: 10px;
+        }
+        .typing-effect {
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: darkblue;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 0.15em solid darkblue;
+            display: inline-block;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: darkblue; }
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center align form elements */
+        }
+        .form-group {
+            margin-bottom: 20px;
+            width: 100%; /* Make form group take full width */
+        }
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            text-align: left; /* Align labels to the left */
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: none;
+            border-bottom: 1px solid black; /* Thin black line */
+            background-color: transparent; /* Transparent background */
+        }
+        .form-group select {
+            appearance: none; /* Remove default select styling */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+        .form-group .textarea-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        .submit-btn {
+            background-color: darkblue;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
- <div class="container">
- <h1 class="contact-heading">CONTACT</h1>
- <h2 class="let-connect">Let's connect</h2>
- <p class="sub-heading">Please fill out the form below, and we'll reach out right away.</p>
- <form onsubmit="return validateForm()">
- <div class="form-row">
- <div class="form-col">
- <label for="firstName">First name<span class="required">*</span></label>
- <input type="text" id="firstName" name="firstName" required>
- <hr>
- </div>
- <div class="form-col">
- <label for="lastName">Last name<span class="required">*</span></label>
- <input type="text" id="lastName" name="lastName" required>
- <hr>
- </div>
- </div>
- <div class="form-row">
- <div class="form-col">
- <label for="email">Email<span class="required">*</span></label>
- <input type="email" id="email" name="email" required>
- <hr>
- </div>
- <div class="form-col">
- <label for="company">Company name<span class="required">*</span></label>
- <input type="text" id="company" name="company" required>
- <hr>
- </div>
- </div>
- <div class="form-row">
- <div class="form-col">
- <label for="jobTitle">Job title<span class="required">*</span></label>
- <input type="text" id="jobTitle" name="jobTitle" required>
- <hr>
- </div>
- <div class="form-col">
- <label for="interestedIn">I'd like to<span class="required">*</span></label>
- <select id="interestedIn" name="interestedIn" required>
- <option value="">Please select</option>
- <option value="financeStack">Finance my new stack</option>
- <option value="offerFinancing">Offer contract financing to my customers</option>
- <option value="somethingElse">Something else</option>
- </select>
- <hr>
- </div>
- </div>
- <div class="form-row">
- <div class="form-col">
- <label for="hearAbout">How did you hear about us?<span
-class="required">*</span></label>
- <input type="text" id="hearAbout" name="hearAbout" required>
- <hr>
- </div>
- </div>
- <div class="form-row">
- <div class="form-col">
- <label for="additionalInfo">Anything else you'd like us to know?</label>
- <textarea id="additionalInfo" name="additionalInfo" rows="4"></textarea>
- <hr>
- </div>
- </div>
- <div class="submit-btn">
- <button type="submit">Submit</button>
- </div>
- </form>
- </div>
- <script src="script.js"></script>
+
+<div class="container">
+    <h2>LET'S CONNECT</h2>
+    <div class="typing-effect" id="typing-effect"></div>
+
+    <form id="contact-form">
+        <div class="form-group">
+            <label for="first-name">First Name<span class="required" style="color: red;">*</span></label>
+            <input type="text" id="first-name" name="first-name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="last-name">Last Name<span class="required" style="color: red;">*</span></label>
+            <input type="text" id="last-name" name="last-name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email<span class="required" style="color: red;">*</span></label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="company-name">Company Name<span class="required" style="color: red;">*</span></label>
+            <input type="text" id="company-name" name="company-name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="job-title">Job Title<span class="required" style="color: red;">*</span></label>
+            <input type="text" id="job-title" name="job-title" required>
+        </div>
+
+        <div class="form-group">
+            <label for="interest">I'd like to<span class="required" style="color: red;">*</span></label>
+            <select id="interest" name="interest" required>
+                <option value="">Please select an option</option>
+                <option value="ask-query">Ask query</option>
+                <option value="provide-feedback">Provide Feedback</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="source">How did you hear about us?<span class="required" style="color: red;">*</span></label>
+            <input type="text" id="source" name="source" required>
+        </div>
+
+        <div class="form-group textarea-group">
+            <label for="additional-info">Anything else you'd like us to know?</label>
+            <textarea id="additional-info" name="additional-info"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit</button>
+
+        <div class="success-message" id="success-message" style="display: none;">
+            &#10003; Successfully submitted. Check your provided email for further confirmation.
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Validate required fields
+        var isValid = true;
+        var requiredFields = document.querySelectorAll('input[required], select[required]');
+        requiredFields.forEach(function(field) {
+            if (!field.value) {
+                isValid = false;
+                field.style.borderColor = 'red';
+            } else {
+                field.style.borderColor = 'black';
+            }
+        });
+
+        if (isValid) {
+            // Show success message
+            document.getElementById('success-message').style.display = 'block';
+
+            // Optionally, you can reset the form
+            // document.getElementById('contact-form').reset();
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const text = "Fill out the basic details to reach out to you.";
+        let index = 0;
+        const typingSpeed = 100; // Increased speed in milliseconds
+        const typingEffectDiv = document.getElementById('typing-effect');
+
+        function type() {
+            if (index < text.length) {
+                typingEffectDiv.innerHTML += text[index];
+                index++;
+                setTimeout(type, typingSpeed);
+            }
+        }
+
+        type();
+    });
+</script>
+
 </body>
 </html>
