@@ -1,73 +1,102 @@
 body {
- background-color: #d0f0e0; /* Lighter sea green */
- font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif;
+    background-color: #a8dbcf; /* Darker outer background color */
+    color: black;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
+
 .container {
- max-width: 600px;
- margin: 0 auto;
- padding: 20px;
- background-color: #f0fff0; /* Lighter sea green */
+    width: 100%;
+    max-width: 600px;
+    background-color: #d7f0e8; /* Lighter background for form container */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for container */
+    text-align: center; /* Center text in container */
 }
-.contact-heading {
- font-size: 14px;
- font-weight: bold;
- text-transform: uppercase;
- color: #00bfff; /* Radium blue */
- text-align: center;
+
+h2 {
+    color: darkblue;
+    text-align: center;
+    font-size: 32px; /* Big font for "LET'S CONNECT" */
+    text-transform: uppercase; /* Capital letters */
+    margin-bottom: 10px;
 }
-.let-connect {
- font-size: 18px;
- font-weight: bold;
- color: #000080; /* Dark navy blue */
- text-align: center;
- margin-top: 20px;
+
+.typing-effect {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: darkblue;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 0.15em solid darkblue;
+    display: inline-block;
+    animation: blink-caret 0.75s step-end infinite;
 }
-.sub-heading {
- font-size: 14px;
- color: #000080; /* Dark navy blue */
- text-align: center;
- margin-bottom: 20px;
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: darkblue; }
 }
-.form-row {
- display: flex;
- gap: 10px;
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align form elements */
 }
-.form-col {
- flex: 1;
+
+.form-group {
+    margin-bottom: 20px;
+    width: 100%; /* Make form group take full width */
 }
-input[type="text"],
-input[type="email"],
-select,
-textarea {
- border: none;
- border-bottom: 1px solid #000;
- background-color: transparent;
- padding: 5px;
- width: 100%;
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    text-align: left; /* Align labels to the left */
 }
-select {
- -webkit-appearance: none;
- -moz-appearance: none;
- appearance: none;
- background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0
-24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path
-d="M0 0h24v24H0z" fill="none"/></svg>');
- background-repeat: no-repeat;
- background-position: right center;
- background-size: 20px;
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: none;
+    border-bottom: 1px solid black; /* Thin black line */
+    background-color: transparent; /* Transparent background */
 }
-.required {
- color: red;
+
+.form-group select {
+    appearance: none; /* Remove default select styling */
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
+
+.form-group .textarea-group textarea {
+    height: 120px;
+    resize: vertical;
+}
+
 .submit-btn {
- text-align: center;
- margin-top: 20px;
+    background-color: darkblue;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 20px;
 }
-button[type="submit"] {
- background-color: #00bfff; /* Radium blue */
- color: #fff;
- border: none;
- padding: 10px 20px;
- font-size: 16px;
- cursor: pointer;
+
+.submit-btn:hover {
+    background-color: #0056b3;
 }
